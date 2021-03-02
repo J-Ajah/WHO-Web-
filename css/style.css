@@ -19,7 +19,7 @@ a{
   }
   .grid-item {
       height: 200px;
-      border: 1px solid rgb(29, 28, 28);
+      border: 0px solid rgb(29, 28, 28);
       color:white;
       font-size: 8em;
       text-align: center;
@@ -90,10 +90,13 @@ a{
 }
 #box3{
     grid-column: 1/5;
+    width: 100%;
     height: 50px;
     background-color:#008dc9;
     font-size: 20px;
     color: #000;
+    position:static;
+
 }
 
 .nav{
@@ -102,6 +105,8 @@ a{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: white;
+    position: relative;
+  
 
 }
 .navItems{
@@ -575,7 +580,7 @@ hr{
     background-color: white !important;
     opacity: 0.9;
     cursor:pointer;
-    animation: hover-animation 2s infinite ease-in;
+
     
 }
 
@@ -588,7 +593,7 @@ hr{
 .events{
     width: 100%;
     
-    border: solid 1px black;
+    border: solid 0px black;
     margin: 0px 20px 0px 17px;
 }
 
@@ -613,6 +618,8 @@ hr{
 }
 
 #eImg:hover{
+    background-color: rgb(255, 255, 255) !important;
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -629,22 +636,35 @@ hr{
 .assocLinks{
     width: 100%;
     height: 105px;
-    border:solid 1px black;
+    border:solid 0px black;
     box-sizing: border-box;
     margin: 0px 10px 17px 10px;
     display: flex;
-    
+    box-shadow: 1px 1px  2px rgb(172, 165, 165);
 }
+
+.assocLinks:hover{
+    box-shadow: 0px 5px  10px rgb(209, 203, 203);
+}
+
+
+
 
 .smallDiv{
    width:20%;
    height: 100px;
    border: solid 0px black;
-   background-color: #f0f0f0;
+   background-color: #ffffff;
    box-sizing: border-box;
    position: relative;
    padding: 0px;
 
+}
+
+.smallDiv:hover{
+    background-color: rgb(255, 255, 255) !important;
+    opacity: 0.9;
+    cursor:pointer;
 }
 
 .one{
@@ -686,6 +706,7 @@ hr{
     height:100%;
     width:15%;
     position: relative;
+    
 
 }
 
@@ -693,7 +714,7 @@ hr{
 .smallDivitems{
     width: 87%;
     color: rgb(12, 12, 12);
-    border: solid 1px black;
+    border: solid 0px black;
 
 
 }
@@ -712,6 +733,7 @@ hr{
     font-size: 17px;
     text-align: left;
     padding-left: 10px;
+    padding-right:0px;
 }
 
 .EventCaption{
@@ -723,8 +745,153 @@ hr{
 
 .smallText{
     color: rgb(105, 102, 102);
-    font-family: 10px;
+    
 }
+
+.EventCaption > a{
+    color: rgb(61, 60, 60) !important;
+}
+
+.EventCaption > a:hover{
+    color: rgb(61, 60, 60) !important;
+    text-decoration: underline;
+}
+
+.box15{
+    margin-top: 60px;
+    grid-column:1/5;
+    background-color:rgba(0,126,180,1); 
+    height:81vh;
+}
+
+.box15_div{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    width: 100%;
+    border: solid 0px rgb(44, 44, 44);
+    box-sizing: border-box;
+   
+}
+
+.box15Items{
+    width: 100%;
+    height:300px;
+    border: solid 0px rgb(29, 28, 28);
+    font-size: 16px;
+    font-family: var(--myfont);
+    text-align: left;
+    padding-top: 20px;
+}
+.box15Items :first-child:hover{
+
+    color: #d86422;
+    
+}
+.box15Items h4{
+       font-size: 1.3em;
+       
+       
+}
+
+.move{
+    position: relative;
+    left: 30px;
+}
+
+#box15ItemButton{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(66, 64, 64);
+    font-size: 1.1em;
+    color: rgb(255, 247, 247);
+    font-size: bold;
+    margin-top: 20px;
+    outline: none;
+}
+
+.changes{
+    width: 100%;
+    grid-column: 1/5;
+    
+    padding-top: 30px;
+    height: 150px;
+}
+
+.changes .ImgLast{
+    width: 50%;
+    height: 100px;
+    border: solid 0px black;
+    background-image: url(../images/h-logo-white.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x:center;
+    color: blanchedalmond;
+    margin: auto;
+
+}
+
+.box16{
+    width: 100%;
+    height: 100px;
+    grid-column: 1/5;
+    box-sizing: border-box;
+    background-color: #20313b;
+    display: flex;
+    justify-content:space-around;
+    
+}
+
+.footerItems{
+    font-size: 25px;
+    font-family: var(--myfont);
+    border: solid 0px black;
+    display:flex;
+   
+    
+}
+
+.wificon{
+    transform:rotate(45deg);
+    font-size: 16px;
+}
+
+.move2{
+    margin: 10px;
+    font-size: 16px;
+    transition: all .2s ease-in-out;
+}
+.box16 .footerItems div .item1:hover{
+    transform: translateY(-4px);
+}
+
+.box16 > .center{
+     position: relative;
+     padding-top: 30px;
+}
+.box16 .left{
+    position: relative;
+    right:120px;
+} 
+
+.box16 .left:hover{
+    cursor: pointer;
+    color: #d86422;
+    text-shadow: 1px 1px 1px rgb(17, 17, 17);
+} 
+
+.box16 .right{
+    position: relative;
+    left:98px;
+} 
+
+
+
+
+
+
+
+
 
 
 
