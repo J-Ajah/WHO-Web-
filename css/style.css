@@ -2,12 +2,18 @@
 :root {
     --myfont:Arial, Helvetica, sans-serif;
   }
+
+
 body{
     background-color: rgb(255, 255, 255);
     margin: 0px;
+    overflow-x: hidden;
     
 }
 
+* {
+    box-sizing: border-box;
+}
 a{
     text-decoration: none;
     color: white;
@@ -15,7 +21,10 @@ a{
 .grid-container {
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
     width: 100%;
+    grid-auto-flow: dense;
+
   }
   .grid-item {
       height: 200px;
@@ -23,7 +32,9 @@ a{
       color:white;
       font-size: 8em;
       text-align: center;
+      float: left;
   }
+
 #box1{
       grid-column: 1/5;
       height: 50px;
@@ -38,11 +49,15 @@ a{
       font-family: Arial, Helvetica, sans-serif;
       color: rgb(255, 255, 255);
       margin: 0px 10px;
-      font-size: 15px;
+      font-size: .8em;
       font-style:normal;
       font-weight: bold;
       font-stretch: normal;
       cursor: pointer;
+  }
+
+  .navMobile{
+      display:none;
   }
   /*/font awesome*/
 #favcon{
@@ -57,13 +72,16 @@ a{
    color:rgb(238, 229, 229);
 }
 
-#serach{
+#search{
     font-size: 26px;
+    right: 200px;
+    position: relative;
 }
 
 .rightItems{
-      position:relative;
-     left: 820px;
+      position:absolute;
+      
+     right: 0;
      padding: 0px 20px;
  }
 
@@ -75,12 +93,20 @@ a{
 
  #box2{
     grid-column: 1/5;
-    height: 110px;
+    height: 100px;
     font-size: 18px;
     color: white;
     background-color: rgb(255, 255, 255);
     margin-bottom: 5px;
     display: flex;
+
+}
+
+#Logodiv{
+    width: 200px;
+    height: 80px;
+    align-items: center;
+    margin:10px 0px 0px 40px;
 
 }
 #box2 > #logo-image{
@@ -95,7 +121,8 @@ a{
     background-color:#008dc9;
     font-size: 20px;
     color: #000;
-    position:static;
+   display: flex;
+   position: relative;
 
 }
 
@@ -109,6 +136,8 @@ a{
   
 
 }
+
+
 .navItems{
     margin: 14px 17px;
     font-size: 18px;
@@ -116,6 +145,34 @@ a{
     top:1px;
     
 }
+
+
+
+/* Mobile nav starts here */
+
+.navMobile{
+    background-color: #008dc9;
+    width: 50px;
+    height: 40px;;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.navMobile .shapes{
+    width: 32px;
+    height: 5px;
+    background-color:white;
+    margin: 6px 5px 5px 9px;
+    justify-items: center;
+    border-radius: 5px;
+}
+
+/* Mobile nav Ends here */
+
+
 .navLink{
     text-decoration: none;
     color: white;
@@ -138,23 +195,28 @@ a{
 /* Box 4 starts here */
 #box4{
     display: flex;
-    margin-top: 64px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-top: 30px;
     grid-column: 1/5;
     font-size: 20px;
     color: #000;
-    border: 0px;
-    height: 400px;
+    height: auto;
   
 }
 
+.divContaner{
+    width:100%;
+    height: auto;
+    border: solid 0px black;
+    box-sizing: border-box;
+    display: flex;
+    margin: 0px 10px 0px 10px;
+}
 
 
 .details{
     position: relative;
     top:19px ;
-    width: 27%;
+    width: 50%;
     height: 355px;
     background-color:#d82138;
     
@@ -164,6 +226,14 @@ a{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
+}
+
+.external-ref{
+    width: 50%;
+    height: 390px;
+    border: solid 0px black;
+    background-color: white;
+    margin: 20px;
 }
 
 #Emergency{
@@ -177,7 +247,7 @@ a{
 hr{
   width: 73%;
   position:relative;
-  right:36px;
+  right:31px;
   height:1.2px;
   background-color: ivory;
 
@@ -206,28 +276,25 @@ hr{
     border-style: none;
 }
 
-.external-ref{
-    width: 300px;
-    height: 390px;
-    border: solid 0px black;
-    background-color: white;
-    margin: 20px;
-}
+
 
 .websrc{
     padding: 0px;
     justify-content: left;
+    width: 50%;
 }
 
 .outerLink{
     background-color: rgb(224, 220, 220);
     width: auto;
+    border: solid 0px black;
+    height: 51px;
     
 }
 
 .txt{
     width:auto;
-    height: 35px;
+    height: 49px;
     background-color: rgb(250, 250, 250);
     margin: 0px;
     padding-top: 15px;
@@ -259,7 +326,7 @@ hr{
     border-left: 4px solid rgb(207, 31, 31);
 }
 
-#imgwho{
+.imgwho{
     max-width: 100%;
     height: auto;
 }
@@ -296,18 +363,19 @@ hr{
 #box5{
     grid-column: 1/5;
     border-bottom: 0.1px solid rgb(224, 222, 222);      
-    margin: 30px 20px;
+    margin: 0px 20px;
     display: flex;
     font-size: 25px;
     height: 60px;
     color: rgb(71, 71, 71);
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px;
+    position:relative;
 }
 
 #newsArrow{
-    position: relative;
-    left: 1170px;
+    position: absolute;
+    right: 0;
     color: #008dc9;
 }
 
@@ -325,7 +393,7 @@ hr{
 
 .group{
     margin: 24px 18px;
-    height: 400px;
+    height: auto;
     background-color:#fafafa;
     border-radius: 10px 30px 0px 0px;
     border-radius: 10px;
@@ -361,14 +429,15 @@ hr{
     line-height: 24px;
 }
 .last{
-    height: 200px;
+    height: 33vh;
 }
 
 /* Div11 */
 .box11{
     grid-column: 1/5;
-    display: flex;
-    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 90px;
     box-sizing: border-box;
     border: 0px;
 }
@@ -391,24 +460,33 @@ hr{
 .h3text{
 
     position: relative;
-    top:20px;
+    top: 20px;
     
 }
 
 .grid-container >.box10{
     grid-column: 1/5;
-    margin: 0px 10px;
-    display: flex;
+    margin: 10px;
+    float: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 0px;
     height: 430px;
-
+    border: solid 0px black;
+    box-sizing:content-box;
+    gap: 8px;
 }
 
-.box10 .colum{
+
+
+.colum{
+    
     border: solid 0px rgb(201, 32, 32);
     height: 100%;
-    width: 100%;
-    margin: 13px 15px;
+    width: 97%;
+    position: relative;
+    margin: auto;
+    
 }
 
 #scienceImg{
@@ -416,6 +494,7 @@ hr{
     background-position: center;
     background-size: cover;
     background-position: center center;
+    max-width: 100%;
 }
 
 #workersImg{
@@ -423,6 +502,7 @@ hr{
     background-position: center;
     background-size: cover;
     background-position: center center;
+    max-width: 100%;
 }
 
 #syringeImg{
@@ -430,6 +510,7 @@ hr{
     background-position: center;
     background-size: cover;
     background-position: center center;
+    max-width: 100%;
 }
 
 #yHeadertext{
@@ -440,6 +521,10 @@ hr{
     position: relative;
     left:20px;
     top: 70px;
+}
+
+#RemoveableLine{
+    display: none;
 }
 
 .yHeadertextBu{
@@ -912,23 +997,562 @@ hr{
 
 
 
+@media screen and (max-width:1270){
+    /* .grid-container >.box10{
+        justify-self: center;
+        grid-column: 1/2;
+        margin: 10px 10px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        border:solid 1px black;
+        
+    
+    }
+     */
+       
+}
+
+
+
 
 
 /* box5 starts here */
 
 
-/* Responsive design starts here */
+/* Responsive design starts here
+@media  (min-width:768px) and (max-width:1019px){
+*/
+
+
+
+/* Tablet responsive design starts here */
+
+@media  (min-width:480px) and (max-width:1019px){
+
+   
+    #box1{
+        display: none;
+    }
+    #box2{
+         position: relative;
+         border: solid 0px black;
+         height: 200px;
+    }
+
+    #logo-image{
+        width: 500px;
+        height:200px !important;
+        border:solid 0px black;
+
+    }
+
+    
+/* Mobile nav starts here */
+
+.navMobile{
+    display:initial;
+     top: 60px;
+    background-color: #008dc9;
+    width:80px;
+    height: 70px;;
+    position: absolute;
+    right: 0;
+    margin-right: 40px;
+    border-radius: 5px;
+}
+
+.navMobile .shapes{
+    width: 60px;
+    height: 8px;
+    background-color:white;
+    margin: 10px 5px 5px 9px;
+    justify-items: center;
+    border-radius: 5px;
+}
+
+/* Mobile nav Ends here */
+
+
+    #box2 img{
+        width:300px;
+        height: 400px;
+        margin-left: 30px;
+    }
+    #box3{
+       display: none;
+    }
+
+
+    /* Box 4 starts here */
+    #box4{
+        display: flex;
+        flex-direction:row;
+        margin-top: 64px;
+        margin-left: 25px;
+        margin-right: 25px;
+        font-size: 20px;
+        color: #000;
+        border: solid 0px black;
+        height: auto;
+        flex-wrap: wrap;
+
+      
+    }
+
+    .details{
+        height: 500px;
+    }
+
+    .websrc{
+        width: 50%;
+        height: 500px;
+        border: solid 0px black;
+        position: relative;
+        left: 15px;
+        background-color: rgba(238, 236, 236, 0.959);
+    }
+
+    #box4 #anotherrow{
+        border:solid 0px black;
+        flex-direction: row;
+
+                
+    }
+    .external-ref{
+        width: 50%;
+        height: 500px;
+        border: solid 0px black;
+        background-color: rgba(248, 252, 243, 0.959);
+        margin: 20px;
+    }
+
+    .outerLink{
+        background-color: rgb(255, 249, 249);
+        width: auto;
+        border: solid 0px black;
+        height: 70px;
+        
+    }
+
+    
+    .txt{
+        width:auto;
+        height: 50px;
+        background-color: rgb(255, 253, 253);
+        box-shadow: .4px .6px 5px rgb(197, 192, 192);
+        margin: 0px;
+        padding-top: 17px;
+        border-bottom: solid 0px black;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: left;
+        padding-left: 8px;
+        position: relative;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    #Emergency{
+        font-size:1.7em;
+        font-weight: bold;
+        word-spacing:inherit;
+        margin-top: 10px;
+        margin-right:60px;
+    }
+
+    
+    #covidText{
+    right: 20px;
+    font-size: 42px;
+    position: relative;
+    top: 40px;
+}
+
+.imgwho{
+    width: 90%;
+    height: auto;
+
+}
+
+
+#btn-Allinfo{
+    position: relative;
+    top: 120px;
+    width: 190px;
+    height: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-stretch: normal;
+    font-weight: bold;
+    font-size: 26px;
+    color:#e71b36;
+    background-color: white;
+    outline: none;
+    left: -28px;
+    border-style: none;
+}
+
+
+#textHeading, #text-details{
+    font-size: 26px;
+}
+
+#secondhr{
+    width: 100%;
+    margin-left: 30px;
+    position: relative;
+    bottom: 10px;
+    height:3px;
+    background-color: rgb(235, 29, 29);
+
+}
+
+
+
+/* News starts here */
+#box6{
+  grid-column:1/5
+
+}
+
+#box7{
+    grid-column:1/5
+}
+
+
+#box8{
+    grid-column:1/5
+}
+
+#box9{
+    grid-column:1/5
+}
+
+.group{
+    justify-self: center;
+    width: 80%;
+    margin: 24px 18px;
+    height: auto;
+    border: solid 0px black;
+    background-color:#fafafa;
+    border-radius: 10px 30px 0px 0px;
+    border-radius: 10px;
+}
+
+
+.txt-news{
+    font-size: 25px;
+    color: black;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding-left: 8px;
+    text-align: center;
+}
+
+.txt-style{
+    margin: auto;
+    width: 80%;
+    font-size: 22px;
+    color: rgb(56, 55, 55);
+    padding: 0px 50px 20px 0px;
+    font-family:var(--myfont);
+    
+}
+
+
+
+.txt-txt{
+    text-align: left;
+    font-weight: bolder;
+    line-height: 24px;
+}
+.last{
+    height: 200px;
+}
+
+
+
+/* News Ends here */
+
+
+
+.box11{
+grid-column: 1/5;
+
+}
+
+.box11 #middle{
+    visibility: hidden;
+}
+
+.box11 .Htext{
+    width: 100%;
+    margin: 10px 13px;
+    box-sizing: border-box;
+    color: rgb(88, 85, 85);
+    font-size: 4vh;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    border-bottom:solid 1px rgb(224, 220, 220);
+    padding-left: 15px;
+    padding-bottom: 8px;
+   
+
+   
+    
+}
+.h3text{
+
+    position: relative;
+    top: 20px;
+    
+}
+
+.grid-container >.box10{
+    justify-self: center;
+    grid-column: 1/5;
+    margin: 10px 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    
+
+}
+
+.box10 .colum{
+    max-width: 100%;
+    border: solid 0px rgb(201, 32, 32);
+    height: 500px;
+    margin: 13px 15px;
+    box-sizing: border-box;
+    font-size:20vh;
+    border-radius:0px 0px 10px 10px;
+    
+    
+}
+
+#yHeadertext{
+    font-size:.6em;
+    line-height:1.2em;
+    
+}
+
+.yHeadertextBu{
+    width: 300px;
+    height: 70px;
+    font-size: 32px;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border-style: none;
+    background-color: #d86422;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top:90px;
+    right: 200px;
+ }
+
+.box12{
+    grid-column: 1/5;
+    /* margin: 50px 10px; */
+    margin-bottom: 0px;
+    margin-top:100px;
+    margin-left: 10px;
+    margin-right:10px; 
+    height: auto;
+    color: rgb(58, 56, 56);
+    font-size: 1.1em;
+    font-family: Arial, Helvetica, sans-serif;
+   position: relative;
+   padding: 0px 130px;
+   text-align: left;
+   font-style: italic;
+}
+
+
+
+.box13{
+    grid-column: 1/5;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    justify-self: center;
+    margin-bottom: 10px;
+}
+.box13 > .colum2{
+    justify-self: center;
+    width: 80%;
+    height: auto;
+    border:solid 0px black;
+    margin: 20px 17px ;
+    position: relative;
+
+}
+
+
+#video-thumbnail{
+    width: 100%;
+    box-sizing:content-box;
+    
+  
+}
+
+
+iframe{
+    width: 610;
+    height: 416;
+}
+
+#library2{
+    background-image: url(../images/library2.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-position: center center;
+    width:100%;
+    height:416px;
+   
+    position: relative;
+   
+    
+}
+
+#president{
+    background-image: url(../images/president.jpg);
+    background-position: center;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height:416px;
+    box-sizing: border-box;
+  
+
+   
+}
+
+.library-content{
+    width: 100%;
+    height: 70px;
+    z-index: 1;
+    background-color:rgba(0,126,180,1);
+    font-size: 19px;
+    position: absolute;
+    bottom: 0px;
+    text-align: left;
+    transition: all 0.3s ease;
+    
+}
+
+
+
+
+
+.box14{
+    grid-column:1/5;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+   align-items: center;
+   position: relative;
+   top: 20px;
+   
+}
+
+.events{
+    width: 90%;
+    height: auto;
+    border: solid 0px black;
+    justify-self: center;
+    padding-top: 10px;
+    margin-top: 40px;
+}
+
+#eImg{
+    background-image: url(../images/people.jpg);
+    background-position: center center;
+    background-size:contain;
+    background-clip:border-box;
+    background-position-y: -0px;
+    position: relative;
+    width: 90%;
+    height: 416px;
+    
+}
+.library-content{
+  
+    padding-bottom: 10px;
+}
+
+.assocLinks{
+    width: 98%;
+    height: auto;
+    box-sizing: content-box;
+    border: solid 0px black;
+}
+
+
+.smallDiv{
+    width:20%;
+    height: 100px;
+
+ 
+ }
+
+ .one, .two, .three{
+     width:15%;
+     height: auto !important;
+ }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
+}
+
+
+
+
+
+
+
+
 
 
 /* Mobile device responsive design starts here */
-
+/* 
 @media  (min-width:480px) and (max-width:768px) {
 
     .grid-container {
         display: inline-grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr ;
         width: 100%;
       }
+     
 
       .grid-item {
         height: auto;
@@ -940,8 +1564,7 @@ hr{
 
 
 #box1{
-    background-color: red;
-    font-size: 0vh;
+    display: none;
 } 
 
 .rightItems{
@@ -951,15 +1574,12 @@ hr{
 }
 
 
-}
 
-
-/* Tablet responsive design starts here */
-
-@media screen{
-     
 
 }
+ */
+
+
 
 
 
